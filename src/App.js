@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import Loadable from "react-loading-overlay";
+import React, { Component } from 'react';
+import Loadable from 'react-loading-overlay';
 
-import Instruction from "./instruction/Instruction.js";
-import Display from "./display/Display";
-import getHeadings from "./api/get-headings";
-import "./App.css";
+import Instruction from './instruction/Instruction.js';
+import Display from './display/Display';
+import getHeadings from './api/get-headings';
+import './App.css';
 
 class App extends Component {
   constructor(props) {
@@ -14,16 +14,15 @@ class App extends Component {
       message:
         "Just enter the public url of a medium article and we'll create a table of contents.",
       loading: false,
-      results: []
+      results: [],
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   handleSubmit(url) {
     this.setState({
-      loading: true
+      loading: true,
     });
 
     getHeadings(url)
@@ -33,7 +32,7 @@ class App extends Component {
             message:
               "Couldn't find headings for this URL. Please check it is correct, and is a Medium article. If the article is a draft, use the 'share' url.",
             error: true,
-            loading: false
+            loading: false,
           });
           return;
         }
@@ -41,17 +40,17 @@ class App extends Component {
         this.setState({
           error: false,
           message:
-            "Done! Just copy and paste whats below into your Medium article!",
+            'Done! Just copy and paste whats below into your Medium article!',
           results: results.results,
-          loading: false
+          loading: false,
         });
       })
       .catch(error => {
         this.setState({
           message:
-            "There was an error fetching content. Make sure the URL is correct and you are connected to the internet.",
+            'There was an error fetching content. Make sure the URL is correct and you are connected to the internet.',
           error: true,
-          loading: false
+          loading: false,
         });
       });
   }
@@ -66,7 +65,9 @@ class App extends Component {
         text="Creating Your Table Of Contents..."
       >
         <div className="content">
-          <h1><a href="/">Medium TOC</a></h1>
+          <h1>
+            <a href="/">Medium TOC</a>
+          </h1>
           <Instruction error={this.state.error} message={this.state.message} />
           <Display
             results={this.state.results}

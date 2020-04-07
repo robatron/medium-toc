@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import "./Form.css";
+import React, { Component } from 'react';
+import './Form.css';
 
 class Form extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,7 +34,9 @@ class Form extends Component {
           <span className="bar" />
           <label>Article URL</label>
         </div>
-        <button type="submit" className="button center" id="go">Go</button>
+        <button type="submit" className="button center" id="go">
+          Go
+        </button>
       </form>
     );
   }
