@@ -1,0 +1,6 @@
+{
+  "arrowParens": "avoid",
+  "proseWrap": "preserve",
+  "singleQuote": true,
+  "tabWidth": 2
+}
